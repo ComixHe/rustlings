@@ -37,14 +37,14 @@ fn build_scores_table(results: String) -> HashMap<String, Team> {
             t1.goals_scored += team_1_score;
             t1.goals_conceded += team_2_score;
         } else {
-            scores.insert(team_1_name.clone(), Team { name: team_1_name, goals_scored: team_1_score, goals_conceded: team_2_score });
+            scores.insert(team_1_name.clone(), Team { goals_scored: team_1_score, goals_conceded: team_2_score });
         }
 
         if let Some(t2) = scores.get_mut(&team_2_name) {
             t2.goals_scored += team_2_score;
             t2.goals_conceded += team_1_score;
         } else {
-            scores.insert(team_2_name.clone(), Team { name: team_2_name, goals_scored: team_2_score, goals_conceded: team_1_score });
+            scores.insert(team_2_name.clone(), Team { goals_scored: team_2_score, goals_conceded: team_1_score });
         }
     }
     scores
